@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WebApiAutoresyLibros.Dtoos;
+using WebApiAutoresyLibros.Entities;
 using WebApiAutoresyLibros.Entitys;
 
 namespace WebApiAutoresyLibros.Utilities
@@ -12,6 +13,8 @@ namespace WebApiAutoresyLibros.Utilities
             CreateMap<Autor, AutorDTO>();
             CreateMap<LibroCreacionDTO, Libros>();
             CreateMap<Libros, LibroDTO>();
+            CreateMap<ComentarioCreacionDTO, Comentario>();
+            CreateMap<Comentario, ComentarioDTO>();
         }
     }
 }

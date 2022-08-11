@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApiAutoresyLibros.Entities;
 using WebApiAutoresyLibros.Entitys;
 
 namespace WebApiAutoresyLibros
@@ -10,5 +11,7 @@ namespace WebApiAutoresyLibros
         }
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Libros> Libros { get; set; }
+          
+        public DbSet<Comentario> Comentarios { get; set; }
     }
 }
