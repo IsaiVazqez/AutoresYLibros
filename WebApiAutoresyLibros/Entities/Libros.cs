@@ -13,5 +13,7 @@ namespace WebApiAutoresyLibros.Entitys
 
         public List<Comentario> Comentarios { get; set; }
 
+        public List<AutoresYLibros> autoresYLibros { get; set; }
+
     }
 }
