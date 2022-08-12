@@ -27,7 +27,7 @@ namespace WebApiAutoresyLibros.Controllers
             return mapper.Map<List<AutorDTO>>(autores);
         }
 
-        [HttpGet("{id:int}")]//encontrar por id
+        [HttpGet("{id:int}", Name = "obtenerAutor")]//encontrar por id
         public async Task<ActionResult<AutorDTOConLibros>> Get(int id)
         {
 
@@ -75,16 +75,15 @@ namespace WebApiAutoresyLibros.Controllers
 
             context.Add(autor);
             await context.SaveChangesAsync();
-            return Ok();
+            var autorDTO = mapper.Map<AutorDTO>(autor);
+
+            return CreatedAtRoute("obtenerAutor", new { id = autor.Id }, autorDTO);
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(Autor autor, int id)
+        public async Task<ActionResult> Put(AutorCreacionDTO autorCreacionDTO, int id)
         {
-            if (autor.Id != id)
-            {
-                return BadRequest("El id del autor no coincide con el id de la URL");
-            }
+
             var existe = await context.Autores.AnyAsync(x => x.Id == id);
 
             if (!existe)
@@ -92,9 +91,12 @@ namespace WebApiAutoresyLibros.Controllers
                 return NotFound();
             }
 
+            var autor = mapper.Map<Autor>(autorCreacionDTO);
+            autor.Id = id;
+
             context.Update(autor);
             await context.SaveChangesAsync();
-            return Ok();
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")]
