@@ -11,14 +11,34 @@ namespace WebApiAutoresyLibros.Utilities
         {
             CreateMap<AutorCreacionDTO, Autor>();
             CreateMap<Autor, AutorDTO>();
+            CreateMap<Autor, AutorDTOConLibros>()
+                .ForMember(autorDTO => autorDTO.Libros, opciones => opciones.MapFrom(MapAutorDTOLibros));
             CreateMap<LibroCreacionDTO, Libros>()
                 .ForMember(libro => libro.autoresYLibros, opciones => opciones.MapFrom(MapAutoresYLibros));
-            CreateMap<Libros, LibroDTO>()
+            CreateMap<Libros, LibroDTO>();
+            CreateMap<Libros, LibroDTOConAutores>()
                 .ForMember(libroDTO => libroDTO.Autores, opciones => opciones.MapFrom(MapLibroDTOAutores));
             CreateMap<ComentarioCreacionDTO, Comentario>();
             CreateMap<Comentario, ComentarioDTO>();
         }
 
+        private List<LibroDTO> MapAutorDTOLibros(Autor autor, AutorDTO autorDTO)
+        {
+            var resultado = new List<LibroDTO>();
+
+            if (autor.autoresYLibros == null) { return resultado; }
+
+            foreach (var autorlibro in autor.autoresYLibros)
+            {
+                resultado.Add(new LibroDTO()
+                {
+                    Id = autorlibro.LibroId,
+                    Titulo = autorlibro.Libros.Titulo
+                });
+            }
+            return resultado;
+
+        }
         private List<AutorDTO> MapLibroDTOAutores(Libros libros, LibroDTO libroDTO)
         {
             var resultado = new List<AutorDTO>();
