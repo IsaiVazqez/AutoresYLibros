@@ -33,7 +33,7 @@ namespace WebApiAutoresyLibros.Controllers
 
             var autor = await context.Autores
                 .Include(autorBD => autorBD.autoresYLibros)
-                .ThenInclude(autorLibroDB => autorLibroDB.Libros)
+                .ThenInclude(autorLibroDB => autorLibroDB.Libro)
                 .FirstOrDefaultAsync(autorBD => autorBD.Id == id);
 
             if (autor == null)

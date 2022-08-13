@@ -30,7 +30,7 @@ namespace WebApiAutoresyLibros.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_autoresYLibros_Libros_LibrosId",
-                        column: x => x.LibrosId,
+                        column: x => x.LibroId,
                         principalTable: "Libros",
                         principalColumn: "Id");
                 });

@@ -33,7 +33,7 @@ namespace WebApiAutoresyLibros.Utilities
                 resultado.Add(new LibroDTO()
                 {
                     Id = autorlibro.LibroId,
-                    Titulo = autorlibro.Libros.Titulo
+                    Titulo = autorlibro.Libro.Titulo
                 });
             }
             return resultado;

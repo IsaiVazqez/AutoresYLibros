@@ -11,6 +11,7 @@ namespace WebApiAutoresyLibros.Entitys
         [PrimeraLetraMayuscula]
         public string Titulo { get; set; }
 
+        public DateTime? FechaPublicacion { get; set; }
         public List<Comentario> Comentarios { get; set; }
 
         public List<AutoresYLibros> AutoresYLibros { get; set; }
