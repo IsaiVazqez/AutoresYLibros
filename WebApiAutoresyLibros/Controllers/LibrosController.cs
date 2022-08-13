@@ -125,5 +125,23 @@ namespace WebApiAutoresyLibros.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+
+        {
+            var existe = await context.Autores.AnyAsync(x => x.Id == id);
+
+            {
+                if (!existe)
+                {
+                    return NotFound();
+                }
+
+                context.Remove(new Libro() { Id = id });
+                await context.SaveChangesAsync();
+                return Ok();
+            }
+        }
     }
 }
