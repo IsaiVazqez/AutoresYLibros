@@ -4,7 +4,7 @@ using WebApiAutoresyLibros.Validaciones;
 
 namespace WebApiAutoresyLibros.Entitys
 {
-    public class Libros
+    public class Libro
     {
         public int Id { get; set; }
         [Required]
@@ -13,7 +13,7 @@ namespace WebApiAutoresyLibros.Entitys
 
         public List<Comentario> Comentarios { get; set; }
 
-        public List<AutoresYLibros> autoresYLibros { get; set; }
+        public List<AutoresYLibros> AutoresYLibros { get; set; }
 
     }
 }

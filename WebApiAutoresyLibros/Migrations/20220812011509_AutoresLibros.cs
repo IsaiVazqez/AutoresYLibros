@@ -38,7 +38,7 @@ namespace WebApiAutoresyLibros.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_autoresYLibros_LibrosId",
                 table: "autoresYLibros",
-                column: "LibrosId");
+                column: "LibroId");
         }
 
         /// <inheritdoc />

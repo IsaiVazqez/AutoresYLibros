@@ -23,11 +23,16 @@ namespace WebApiAutoresyLibros.Controllers
         public async Task<ActionResult<LibroDTOConAutores>> Get(int id)
         {
             var libro = await context.Libros
-                .Include(libroDB => libroDB.autoresYLibros)
+                .Include(libroDB => libroDB.AutoresYLibros)
                 .ThenInclude(autorLibroDB => autorLibroDB.Autor)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
-            libro.autoresYLibros = libro.autoresYLibros.OrderBy(x => x.Orden).ToList();
+            if (libro == null)
+            {
+                return NotFound();
+            }
+
+            libro.AutoresYLibros = libro.AutoresYLibros.OrderBy(x => x.Orden).ToList();
 
             return mapper.Map<LibroDTOConAutores>(libro);
         }
@@ -47,7 +52,7 @@ namespace WebApiAutoresyLibros.Controllers
             {
                 return BadRequest("No existe uno de los autores enviados");
             }
-                var libro = mapper.Map<Libros>(libroCreacionDTO);
+                var libro = mapper.Map<Libro>(libroCreacionDTO);
                 AsignarOrdenAutores(libro);
                 
                 context.Add(libro);
@@ -62,7 +67,7 @@ namespace WebApiAutoresyLibros.Controllers
         public async Task<ActionResult> Put(int id, LibroCreacionDTO libroCreacionDTO)
         {
             var libroDB = await context.Libros
-                .Include(x => x.autoresYLibros)
+                .Include(x => x.AutoresYLibros)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (libroDB == null)
@@ -77,13 +82,13 @@ namespace WebApiAutoresyLibros.Controllers
             return NoContent();
         }
 
-        private void AsignarOrdenAutores(Libros libro)
+        private void AsignarOrdenAutores(Libro libro)
         {
-            if (libro.autoresYLibros != null)
+            if (libro.AutoresYLibros != null)
             {
-                for (int i = 0; i < libro.autoresYLibros.Count; i++)
+                for (int i = 0; i < libro.AutoresYLibros.Count; i++)
                 {
-                    libro.autoresYLibros[i].Orden = i;
+                    libro.AutoresYLibros[i].Orden = i;
                 }
             }
         }

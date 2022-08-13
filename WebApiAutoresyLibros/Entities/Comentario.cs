@@ -8,6 +8,6 @@ namespace WebApiAutoresyLibros.Entities
         public string Contenido { get; set; }
         public int LibroId { get; set; }
 
-        public Libros Libro { get; set; } 
+        public Libro Libro { get; set; } 
     }
 }

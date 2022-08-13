@@ -13,10 +13,10 @@ namespace WebApiAutoresyLibros.Utilities
             CreateMap<Autor, AutorDTO>();
             CreateMap<Autor, AutorDTOConLibros>()
                 .ForMember(autorDTO => autorDTO.Libros, opciones => opciones.MapFrom(MapAutorDTOLibros));
-            CreateMap<LibroCreacionDTO, Libros>()
-                .ForMember(libro => libro.autoresYLibros, opciones => opciones.MapFrom(MapAutoresYLibros));
-            CreateMap<Libros, LibroDTO>();
-            CreateMap<Libros, LibroDTOConAutores>()
+            CreateMap<LibroCreacionDTO, Libro>()
+                .ForMember(libro => libro.AutoresYLibros, opciones => opciones.MapFrom(MapAutoresYLibros));
+            CreateMap<Libro, LibroDTO>();
+            CreateMap<Libro, LibroDTOConAutores>()
                 .ForMember(libroDTO => libroDTO.Autores, opciones => opciones.MapFrom(MapLibroDTOAutores));
             CreateMap<ComentarioCreacionDTO, Comentario>();
             CreateMap<Comentario, ComentarioDTO>();
@@ -39,13 +39,13 @@ namespace WebApiAutoresyLibros.Utilities
             return resultado;
 
         }
-        private List<AutorDTO> MapLibroDTOAutores(Libros libros, LibroDTO libroDTO)
+        private List<AutorDTO> MapLibroDTOAutores(Libro libros, LibroDTO libroDTO)
         {
             var resultado = new List<AutorDTO>();
 
-            if (libros.autoresYLibros == null) { return resultado; }
+            if (libros.AutoresYLibros == null) { return resultado; }
 
-            foreach ( var autorlibro in libros.autoresYLibros)
+            foreach ( var autorlibro in libros.AutoresYLibros)
             {
                 resultado.Add(new AutorDTO()
                 {
@@ -56,15 +56,15 @@ namespace WebApiAutoresyLibros.Utilities
             return resultado;
         }
 
-        private List<AutoresYLibros> MapAutoresYLibros(LibroCreacionDTO libroCreacionDTO, Libros libros)
+        private List<AutoresYLibros> MapAutoresYLibros(LibroCreacionDTO libroCreacionDTO, Libro libros)
         {
             var resultado = new List<AutoresYLibros>();
             
             if (libroCreacionDTO.AutoresIds == null) { return resultado; }
 
-            foreach (var autorID in libroCreacionDTO.AutoresIds)
+            foreach (var autorId in libroCreacionDTO.AutoresIds)
                 {
-                resultado.Add(new AutoresYLibros() { AutorId = autorID });
+                resultado.Add(new AutoresYLibros() { AutorId = autorId });
             }
             return resultado;
         }
