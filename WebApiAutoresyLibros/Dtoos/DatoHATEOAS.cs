@@ -6,7 +6,7 @@
         public string Descripcion { get; private set; }
         public string Metodo { get; private set; }
 
-        public DatoHATEOAS(string enlace, string descripcion, string metodo
+        public DatoHATEOAS(string enlace, string descripcion, string metodo)
          {
             Enlace = enlace;
             Descripcion = descripcion;

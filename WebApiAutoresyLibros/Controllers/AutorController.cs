@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiAutoresyLibros.Dtoos;
 using WebApiAutoresyLibros.Entitys;
+using WebApiAutoresyLibros.Utilities;
 
 namespace WebApiAutoresyLibros.Controllers
 {
@@ -25,9 +26,13 @@ namespace WebApiAutoresyLibros.Controllers
 
         [HttpGet(Name = "obtenerAutores")]
         [AllowAnonymous]
-        public async Task<ActionResult<List<AutorDTO>>> Get()
+        public async Task<ActionResult<List<AutorDTO>>> Get([FromQuery] PaginacionDTO paginacionDTO)
         {
-            var autores = await context.Autores.ToListAsync();
+            var queryable = context.Autores.AsQueryable();
+
+            await HttpContext.InsertarParametrosPaginacionEnCabecera(queryable);
+
+            var autores = await queryable.OrderBy(autor  => autor.Name).Paginar(paginacionDTO).ToListAsync();
             
             return mapper.Map<List<AutorDTO>>(autores);
         }
