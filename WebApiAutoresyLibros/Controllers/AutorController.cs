@@ -23,7 +23,7 @@ namespace WebApiAutoresyLibros.Controllers
             this.mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "obtenerAutores")]
         [AllowAnonymous]
         public async Task<ActionResult<List<AutorDTO>>> Get()
         {
@@ -48,7 +48,7 @@ namespace WebApiAutoresyLibros.Controllers
 
             return mapper.Map<AutorDTOConLibros>(autor);
         }
-        [HttpGet("{nombre}")]//encontrar por nombre
+        [HttpGet("{nombre}", Name = "obtenerAutorPorNombre")]//encontrar por nombre
         public async Task<ActionResult<List<AutorDTO>>> Get(string nombre)
         {
 
@@ -65,7 +65,7 @@ namespace WebApiAutoresyLibros.Controllers
             return await context.Autores.FirstOrDefaultAsync();
         }
 
-        [HttpPost]
+        [HttpPost(Name = "crearAutor")]
         public async Task<ActionResult> Post(AutorCreacionDTO autorCreacionDTO)
         {
 
@@ -85,7 +85,7 @@ namespace WebApiAutoresyLibros.Controllers
             return CreatedAtRoute("obtenerAutor", new { id = autor.Id }, autorDTO);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int}", Name = "actualizarAutor")]
         public async Task<ActionResult> Put(AutorCreacionDTO autorCreacionDTO, int id)
         {
 
@@ -104,7 +104,7 @@ namespace WebApiAutoresyLibros.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id:int}", Name = "borrarAutor")]
         public async Task<ActionResult> Delete(int id)
 
         {

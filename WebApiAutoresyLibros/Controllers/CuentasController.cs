@@ -33,60 +33,60 @@ namespace WebApiAutoresyLibros.Controllers
             dataProtector = dataProtectionProvider.CreateProtector("valor_unico_y_quizas_secreto");
         }
 
-        [HttpGet("hash/{textoPlano}")]
-        public ActionResult RealizarHash(string textoPlano)
-        {
-            var resultado1 = hashService.Hash(textoPlano);
+        //[HttpGet("hash/{textoPlano}")]
+        //public ActionResult RealizarHash(string textoPlano)
+        //{
+        //    var resultado1 = hashService.Hash(textoPlano);
 
-            return Ok(new
-            {
-                textoPlano = textoPlano,
+        //    return Ok(new
+        //    {
+        //        textoPlano = textoPlano,
 
-                Hash1 = resultado1
-            });
-        }
+        //        Hash1 = resultado1
+        //    });
+        //}
 
-        [HttpGet("encriptar")]
-        public ActionResult Encriptar()
-        {
-            var textoPlano = "Isaí Vázquez";
+        //[HttpGet("encriptar")]
+        //public ActionResult Encriptar()
+        //{
+        //    var textoPlano = "Isaí Vázquez";
 
-            var textoCifrado = dataProtector.Protect(textoPlano);
+        //    var textoCifrado = dataProtector.Protect(textoPlano);
 
-            var textoDesencriptado = dataProtector.Unprotect(textoCifrado);
+        //    var textoDesencriptado = dataProtector.Unprotect(textoCifrado);
 
-            return Ok(new
-            {
-                textoPlano = textoPlano,
+        //    return Ok(new
+        //    {
+        //        textoPlano = textoPlano,
 
-                textoCifrado = textoCifrado,
+        //        textoCifrado = textoCifrado,
 
-                textoDesencriptado = textoDesencriptado
-            });
-        }
+        //        textoDesencriptado = textoDesencriptado
+        //    });
+        //}
 
-        [HttpGet("encriptarPorTiemoo")]
-        public ActionResult EncriptarPorTiempo()
-        {
-            var protectorLimitadoPorTiempo = dataProtector.ToTimeLimitedDataProtector();
+        //[HttpGet("encriptarPorTiemoo")]
+        //public ActionResult EncriptarPorTiempo()
+        //{
+        //    var protectorLimitadoPorTiempo = dataProtector.ToTimeLimitedDataProtector();
 
-            var textoPlano = "Isaí Vázquez";
+        //    var textoPlano = "Isaí Vázquez";
 
-            var textoCifrado = protectorLimitadoPorTiempo.Protect(textoPlano, lifetime: TimeSpan.FromMinutes(30));
+        //    var textoCifrado = protectorLimitadoPorTiempo.Protect(textoPlano, lifetime: TimeSpan.FromMinutes(30));
 
-            var textoDesencriptado = dataProtector.Unprotect(textoCifrado);
+        //    var textoDesencriptado = dataProtector.Unprotect(textoCifrado);
 
-            return Ok(new
-            {
-                textoPlano = textoPlano,
+        //    return Ok(new
+        //    {
+        //        textoPlano = textoPlano,
 
-                textoCifrado = textoCifrado,
+        //        textoCifrado = textoCifrado,
 
-                textoDesencriptado = textoDesencriptado
-            });
-        }
+        //        textoDesencriptado = textoDesencriptado
+        //    });
+        //}
 
-        [HttpPost("registrar")]
+        [HttpPost("registrar", Name = "registrarUsuario")]
         public async Task<ActionResult<RespuestaAuth>> Registrar(CredencialesUsuario credencialesUsuario)
         {
             var usuario = new IdentityUser { UserName = credencialesUsuario.Email,
@@ -105,7 +105,7 @@ namespace WebApiAutoresyLibros.Controllers
 
         }
 
-        [HttpPost("login")]
+        [HttpPost("login", Name = "loginUsuario")]
         public async Task<ActionResult<RespuestaAuth>> Login (CredencialesUsuario credencialesUsuario)
         {
             var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email,
@@ -121,7 +121,7 @@ namespace WebApiAutoresyLibros.Controllers
             }
         }
 
-        [HttpGet("RenovarToken")]
+        [HttpGet("RenovarToken", Name = "renovarToken")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<RespuestaAuth>> Renovar()
         {
@@ -168,7 +168,7 @@ namespace WebApiAutoresyLibros.Controllers
             };
         }
 
-        [HttpPost("HacerAdmin")]
+        [HttpPost("HacerAdmin", Name = "hacerAdmin")]
         public async Task<ActionResult> HacerAdmin(EditarAdminDTO editarAdminDTO)
         {
             var usuario = await userManager.FindByEmailAsync(editarAdminDTO.Email);
@@ -178,7 +178,7 @@ namespace WebApiAutoresyLibros.Controllers
             return NoContent();
         }
 
-        [HttpPost("RemoverAdmin")]
+        [HttpPost("RemoverAdmin", Name = "removerAdmin")]
         public async Task<ActionResult> RemoverAdmin(EditarAdminDTO editarAdminDTO)
         {
             var usuario = await userManager.FindByEmailAsync(editarAdminDTO.Email);
