@@ -6,6 +6,7 @@ using Microsoft.OpenApi.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Text.Json.Serialization;
+using WebApiAutoresyLibros.Services;
 
 namespace WebApiAutoresyLibros
 {
@@ -77,6 +78,10 @@ namespace WebApiAutoresyLibros
             {
                 opciones.AddPolicy("EsAdmin", politica => politica.RequireClaim("esAdmin"));
             });
+
+            services.AddDataProtection();
+
+            services.AddTransient<HashService>();
 
             services.AddCors(opciones =>
             {
