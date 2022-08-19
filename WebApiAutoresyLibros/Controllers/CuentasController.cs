@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,7 +12,7 @@ using WebApiAutoresyLibros.Dtoos;
 namespace WebApiAutoresyLibros.Controllers
 {
     [ApiController]
-    [Route("api/cuenntas")]
+    [Route("api/cuentas")]
     public class CuentasController : ControllerBase
     {
         private readonly UserManager<IdentityUser> userManager;
@@ -60,6 +62,24 @@ namespace WebApiAutoresyLibros.Controllers
             }
         }
 
+        [HttpGet("RenovarToken")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public ActionResult<RespuestaAuth> Renovar()
+        {
+            {
+                var emailClaim = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault();
+
+                var email = emailClaim.Value;
+
+                var credencialesUsuario = new CredencialesUsuario()
+                {
+                    Email = email
+                };
+
+                return ConstruirToken(credencialesUsuario);
+            }
+        }
+
         private RespuestaAuth ConstruirToken(CredencialesUsuario credencialesUsuario)
         {
             var claims = new List<Claim>()
@@ -73,7 +93,7 @@ namespace WebApiAutoresyLibros.Controllers
 
             var creds = new SigningCredentials(llave, SecurityAlgorithms.HmacSha256);
 
-            var expiracion = DateTime.UtcNow.AddDays(1);
+            var expiracion = DateTime.UtcNow.AddMinutes(60);
 
             var securityToken = new JwtSecurityToken(issuer: null, audience: null, claims: claims,
                 expires: expiracion, signingCredentials: creds);
