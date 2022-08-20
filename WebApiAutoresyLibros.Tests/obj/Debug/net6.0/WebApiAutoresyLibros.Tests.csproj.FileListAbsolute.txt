@@ -164,3 +164,5 @@ C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros.Tests\obj\
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros.Tests\obj\Debug\net6.0\WebApiAutoresyLibros.Tests.pdb
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros.Tests\obj\Debug\net6.0\WebApiAutoresyLibros.Tests.genruntimeconfig.cache
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros.Tests\obj\Debug\net6.0\ref\WebApiAutoresyLibros.Tests.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros.Tests\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros.Tests\bin\Debug\net6.0\Moq.dll
