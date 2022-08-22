@@ -96,10 +96,12 @@ namespace WebApiAutoresyLibros
         {
             if (env.IsDevelopment())
             {
-                app.UseSwagger();
 
-                app.UseSwaggerUI();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
 

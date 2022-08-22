@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2022-08-22T18:49:25.0479787Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2022-08-22T18:49:08.8140826Z"
+    },
+    "identityapp1": {
+      "restored": true,
+      "restoreTime": "2022-08-22T18:43:58.2817599Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "805bc935-0fa9-42ea-a390-1c21bb748e89"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "WebApiAutoresyLibros20220822134222ResourceGroup"
+    }
+  }
+}
