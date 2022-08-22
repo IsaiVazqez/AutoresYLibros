@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlIVYTz7tVU+lIhgyrkRdxgAAAAACAAAAAAAQZgAAAAEAACAAAABlJ1IoUpAxLjhasRZx4CRsgqMsLn0YQobA4OG9VaiX2gAAAAAOgAAAAAIAACAAAADkTNCs8aGlD84OEQM0x9wtndG5aqLndkB4lAhhNe+NI4AAAAA5A7bCmZAAd/ACCPMSE//RJB3VGRMG/vEm6JeFxA8ZDAb1qshEYp+jATQ1l3jvrYRc+OautxghHJWVG0GHTBZzJsfWh6yJRSzeFZzD07nUMiNfrJo7GEKnZ2aJ+U5hrE0QfBoL8qAs6CZcXimhA+oPF2DfTVwZlCmHu91FxUttiUAAAABs670AW5Jw2ZXMQs44+6fWOtwppj2pLYAcUA4l3MZYAN8JciGMs3Yam3FXhS287+Axixmyal/iJBDQVicE0F8x</EncryptedPassword>
-    <History>True|2022-08-22T19:57:33.2587887Z;True|2022-08-22T13:51:31.7476252-05:00;</History>
+    <History>True|2022-08-22T20:12:24.8313244Z;True|2022-08-22T14:57:33.2587887-05:00;True|2022-08-22T13:51:31.7476252-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <EFMigrations Include="WebApiAutoresyLibros.ApplicationDbContext">

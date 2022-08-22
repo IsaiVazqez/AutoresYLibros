@@ -8,6 +8,13 @@ C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Releas
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Azure.Core.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Azure.Identity.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.ApplicationInsights.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.ApplicationInsights.AspNetCore.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AI.DependencyCollector.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AI.EventCounterCollector.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AI.WindowsServer.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AI.ServerTelemetryChannel.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -29,6 +36,7 @@ C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Releas
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.Extensions.Logging.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.Extensions.Logging.ApplicationInsights.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.Extensions.Options.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.Extensions.Primitives.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Microsoft.Identity.Client.dll
@@ -46,6 +54,7 @@ C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Releas
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\System.Configuration.ConfigurationManager.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\System.Diagnostics.PerformanceCounter.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\System.Drawing.Common.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\PubTmp\Out\System.Memory.Data.dll

@@ -73,3 +73,12 @@ C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Releas
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\WebApiAutoresyLibros.pdb
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\WebApiAutoresyLibros.genruntimeconfig.cache
 C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\obj\Release\net6.0\win-x86\ref\WebApiAutoresyLibros.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.ApplicationInsights.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.ApplicationInsights.AspNetCore.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.AI.DependencyCollector.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.AI.EventCounterCollector.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.AI.WindowsServer.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\Microsoft.Extensions.Logging.ApplicationInsights.dll
+C:\Users\7yuvr\source\repos\WebApiAutoresyLibros\WebApiAutoresyLibros\bin\Release\net6.0\win-x86\System.Diagnostics.PerformanceCounter.dll

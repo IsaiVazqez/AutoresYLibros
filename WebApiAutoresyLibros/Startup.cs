@@ -91,6 +91,8 @@ namespace WebApiAutoresyLibros
                     .WithExposedHeaders(new string[] { "cantidadTotalRegistros" });
                 });
             });
+
+            services.AddApplicationInsightsTelemetry(Configuration["ApplicationInsights:ConnectionString"]);
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
