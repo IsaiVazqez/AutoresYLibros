@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApiAutoresyLibros;
 
@@ -11,9 +12,11 @@ using WebApiAutoresyLibros;
 namespace WebApiAutoresyLibros.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220914152510_PeticionesLimite")]
+    partial class PeticionesLimite
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -312,48 +315,6 @@ namespace WebApiAutoresyLibros.Migrations
                     b.ToTable("Peticiones");
                 });
 
-            modelBuilder.Entity("WebApiAutoresyLibros.Entities.RestriccionDominio", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Dominio")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LlaveId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LlaveId");
-
-                    b.ToTable("RestriccionesDominio");
-                });
-
-            modelBuilder.Entity("WebApiAutoresyLibros.Entities.RestriccionIP", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("IP")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LlaveId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LlaveId");
-
-                    b.ToTable("RestriccionesIP");
-                });
-
             modelBuilder.Entity("WebApiAutoresyLibros.Entitys.Autor", b =>
                 {
                     b.Property<int>("Id")
@@ -489,28 +450,6 @@ namespace WebApiAutoresyLibros.Migrations
                 });
 
             modelBuilder.Entity("WebApiAutoresyLibros.Entities.Peticion", b =>
-                {
-                    b.HasOne("WebApiAutoresyLibros.Entities.LlaveAPI", "Llave")
-                        .WithMany()
-                        .HasForeignKey("LlaveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Llave");
-                });
-
-            modelBuilder.Entity("WebApiAutoresyLibros.Entities.RestriccionDominio", b =>
-                {
-                    b.HasOne("WebApiAutoresyLibros.Entities.LlaveAPI", "Llave")
-                        .WithMany()
-                        .HasForeignKey("LlaveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Llave");
-                });
-
-            modelBuilder.Entity("WebApiAutoresyLibros.Entities.RestriccionIP", b =>
                 {
                     b.HasOne("WebApiAutoresyLibros.Entities.LlaveAPI", "Llave")
                         .WithMany()

@@ -11,6 +11,7 @@
     <Content Remove="DTOs\**" />
     <EmbeddedResource Remove="DTOs\**" />
     <None Remove="DTOs\**" />
+    <None Remove="MiddleWares\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,4 +28,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MiddleWares\" />
+  </ItemGroup>
 </Project>
