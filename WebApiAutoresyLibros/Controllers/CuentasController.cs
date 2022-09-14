@@ -20,7 +20,6 @@ namespace WebApiAutoresyLibros.Controllers
         private readonly IConfiguration configuration;
         private readonly SignInManager<IdentityUser> signInManager;
         private readonly HashService hashService;
-        private readonly IDataProtector dataProtector;
 
         public CuentasController(UserManager<IdentityUser> userManager, IConfiguration configuration,
             SignInManager<IdentityUser> signInManager, IDataProtectionProvider dataProtectionProvider,
@@ -30,7 +29,6 @@ namespace WebApiAutoresyLibros.Controllers
             this.configuration = configuration;
             this.signInManager = signInManager;
             this.hashService = hashService;
-            dataProtector = dataProtectionProvider.CreateProtector("valor_unico_y_quizas_secreto");
         }
 
         //[HttpGet("hash/{textoPlano}")]
@@ -96,7 +94,7 @@ namespace WebApiAutoresyLibros.Controllers
 
             if (resultado.Succeeded)
             {
-                return await ConstruirToken(credencialesUsuario);
+                return await ConstruirToken(credencialesUsuario, usuario.Id);
             }
             else
             {
@@ -113,7 +111,9 @@ namespace WebApiAutoresyLibros.Controllers
 
             if (resultado.Succeeded)
             {
-                return await ConstruirToken(credencialesUsuario);
+                var usuario = await userManager.FindByEmailAsync(credencialesUsuario.Email);
+
+                return await ConstruirToken(credencialesUsuario, usuario.Id);
             }
             else
             {
@@ -130,22 +130,26 @@ namespace WebApiAutoresyLibros.Controllers
 
                 var email = emailClaim.Value;
 
+                var idClaim = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault();
+
+                var usuarioId = idClaim.Value;
+
                 var credencialesUsuario = new CredencialesUsuario()
                 {
                     Email = email
                 };
 
-                return await ConstruirToken(credencialesUsuario);
+                return await ConstruirToken(credencialesUsuario, usuarioId);
             }
         }
 
-        private async Task<RespuestaAuth> ConstruirToken(CredencialesUsuario credencialesUsuario)
+        private async Task<RespuestaAuth> ConstruirToken(CredencialesUsuario credencialesUsuario, string usuarioId)
         {
             var claims = new List<Claim>()
             {
                 new Claim("email", credencialesUsuario.Email),
 
-                new Claim("Lo que yo quiera", "cualquier otro valor")
+                new Claim("id", usuarioId)
             };
 
             var usuario = await userManager.FindByEmailAsync(credencialesUsuario.Email);
