@@ -10,17 +10,27 @@ namespace WebApiAutoresyLibros.Utilities
         public AutoMapperProfile()
         {
             CreateMap<AutorCreacionDTO, Autor>();
+
             CreateMap<Autor, AutorDTO>();
+
             CreateMap<Autor, AutorDTOConLibros>()
                 .ForMember(autorDTO => autorDTO.Libros, opciones => opciones.MapFrom(MapAutorDTOLibros));
+
             CreateMap<LibroCreacionDTO, Libro>()
                 .ForMember(libro => libro.AutoresYLibros, opciones => opciones.MapFrom(MapAutoresYLibros));
+
             CreateMap<Libro, LibroDTO>();
+
             CreateMap<Libro, LibroDTOConAutores>()
                 .ForMember(libroDTO => libroDTO.Autores, opciones => opciones.MapFrom(MapLibroDTOAutores));
+
             CreateMap<LibroPatchDTO, Libro>().ReverseMap();
+
             CreateMap<ComentarioCreacionDTO, Comentario>();
+
             CreateMap<Comentario, ComentarioDTO>();
+
+            CreateMap<LlaveAPI, LlaveDTO>();
         }
 
         private List<LibroDTO> MapAutorDTOLibros(Autor autor, AutorDTO autorDTO)
