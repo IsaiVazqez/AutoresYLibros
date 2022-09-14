@@ -19,16 +19,15 @@ namespace WebApiAutoresyLibros.Controllers
         private readonly UserManager<IdentityUser> userManager;
         private readonly IConfiguration configuration;
         private readonly SignInManager<IdentityUser> signInManager;
-        private readonly HashService hashService;
+        private readonly ServicioLlaves servicioLlaves;
 
         public CuentasController(UserManager<IdentityUser> userManager, IConfiguration configuration,
-            SignInManager<IdentityUser> signInManager, IDataProtectionProvider dataProtectionProvider,
-            HashService hashService)
+            SignInManager<IdentityUser> signInManager, ServicioLlaves servicioLlaves)
         {
             this.userManager = userManager;
             this.configuration = configuration;
             this.signInManager = signInManager;
-            this.hashService = hashService;
+            this.servicioLlaves = servicioLlaves;
         }
 
         //[HttpGet("hash/{textoPlano}")]
@@ -94,6 +93,8 @@ namespace WebApiAutoresyLibros.Controllers
 
             if (resultado.Succeeded)
             {
+                await servicioLlaves.CrearLlave(usuario.Id, Entities.TipoLlave.Gratuita);
+
                 return await ConstruirToken(credencialesUsuario, usuario.Id);
             }
             else

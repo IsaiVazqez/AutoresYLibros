@@ -264,6 +264,33 @@ namespace WebApiAutoresyLibros.Migrations
                     b.ToTable("Comentarios");
                 });
 
+            modelBuilder.Entity("WebApiAutoresyLibros.Entities.LlaveAPI", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Activa")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Llave")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoLlave")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsuarioId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("LlavesApi");
+                });
+
             modelBuilder.Entity("WebApiAutoresyLibros.Entitys.Autor", b =>
                 {
                     b.Property<int>("Id")
@@ -385,6 +412,15 @@ namespace WebApiAutoresyLibros.Migrations
                         .HasForeignKey("UsuarioId");
 
                     b.Navigation("Libro");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("WebApiAutoresyLibros.Entities.LlaveAPI", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
 
                     b.Navigation("Usuario");
                 });

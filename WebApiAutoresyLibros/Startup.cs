@@ -87,10 +87,12 @@ namespace WebApiAutoresyLibros
             {
                 opciones.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("").AllowAnyMethod().AllowAnyHeader()
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
                     .WithExposedHeaders(new string[] { "cantidadTotalRegistros" });
                 });
             });
+
+            services.AddScoped<ServicioLlaves>();
 
             services.AddApplicationInsightsTelemetry(Configuration["ApplicationInsights:ConnectionString"]);
         }
